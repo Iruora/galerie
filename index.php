@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -31,8 +30,6 @@ $s3 = new S3(awsAccessKey, awsSecretKey);
  
 ?>
 <?php
-
-
  if(isset($_GET['add'])){if($_GET['add']==0){echo "<div class='alert alert-success alert-dismissible'>
    <a href='#'' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
    <strong>Success!</strong> Your image has been successfully added !
@@ -40,8 +37,6 @@ $s3 = new S3(awsAccessKey, awsSecretKey);
    <a href='#'' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
    <strong>Echec!</strong> Error while adding your image !
  </div>";}}
-
-
   ?>
 <br><br>
 <div class="container">
@@ -91,23 +86,19 @@ $s3 = new S3(awsAccessKey, awsSecretKey);
 	    		$tmpfilename = $_FILES['img']['tmp_name'] ;
 	    		var_dump($s3->putBucket("ndhs3", S3::ACL_PUBLIC_READ));
 			//move the file
-	                var_dump($s3->putObjectFile($tmpfilename, "ndhs3", $nomimg, S3::ACL_PUBLIC_READ));
 			if ($s3->putObjectFile($tmpfilename, "ndhs3", $nomimg, S3::ACL_PUBLIC_READ)) {
-				echo "<script>console.log("S3::We successfully uploaded your file.")</script>";
+				echo "<strong>S3::We successfully uploaded your file.</strong>";
 			}else{
-				echo "<script>console.log("S3::We successfully uploaded your file.")</script>";
+				echo "<strong>S3::Something went wrong while uploading your file... sorry.</strong>";
 			}
             		////////////////////////////////////////////////////////////
 	    		$sql=$bd->prepare("INSERT INTO `images`(`name`, `src`) VALUES (:src,:src)");
 	    
 			$sql->bindParam('src', $nomimg);
 			$res=$sql->execute();
-
 			$dirpath = realpath(dirname(getcwd()));
 			$document=$dirpath."/./uploads/".$nomimg;
-
 			$result = move_uploaded_file($_FILES['img']['tmp_name'],$document);
-
 			if ($res){ echo "Success";
 				header('location:./index.php?add=0'); }
 			else header('location:./index.php?add=1');
