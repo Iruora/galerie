@@ -26,7 +26,7 @@ if (!defined('awsSecretKey')) define('awsSecretKey', '7SajAaXY2G3ZCa4Z+WUEMix5qB
  
 //instantiate the class
 $s3 = new S3(awsAccessKey, awsSecretKey);
- 
+ var_dump($s3);
 //we'll continue our script from here in step 4!
  
 ?>
@@ -91,10 +91,11 @@ $s3 = new S3(awsAccessKey, awsSecretKey);
 	    		$tmpfilename = $_FILES['img']['tmp_name'] ;
 	    		var_dump($s3->putBucket("ndhs3", S3::ACL_PUBLIC_READ));
 			//move the file
+	                var_dump($s3->putObjectFile($tmpfilename, "ndhs3", $nomimg, S3::ACL_PUBLIC_READ));
 			if ($s3->putObjectFile($tmpfilename, "ndhs3", $nomimg, S3::ACL_PUBLIC_READ)) {
-				echo "<strong>S3::We successfully uploaded your file.</strong>";
+				echo "<script>console.log("S3::We successfully uploaded your file.")</script>";
 			}else{
-				echo "<strong>S3::Something went wrong while uploading your file... sorry.</strong>";
+				echo "<script>console.log("S3::We successfully uploaded your file.")</script>";
 			}
             		////////////////////////////////////////////////////////////
 	    		$sql=$bd->prepare("INSERT INTO `images`(`name`, `src`) VALUES (:src,:src)");
