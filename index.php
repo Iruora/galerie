@@ -56,7 +56,7 @@
 	{
 		$param='mysql:host=mydb.cziozwt7vuhe.eu-west-1.rds.amazonaws.com;dbname=galerie';
 		$user='root';
-		$password='';
+		$password='rootroot';
 		$bd=new PDO($param,$user,$password);
 		$bd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $table = 'images';
