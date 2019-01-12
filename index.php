@@ -77,11 +77,11 @@
 			$nomimg = str_replace('@', '_', $nomimg);
 	    
 	    		$tmpfilename = $_FILES['img']['tmp_name'] ;
-	                if (!class_exists('S3'))require_once('S3.php');
+	                if (!class_exists('S3'))require_once('./S3.php');
  
 			//AWS access info
-			if (!defined('awsAccessKey')) define('awsAccessKey', 'AKIAJN6T756MUGUJIVHA');
-			if (!defined('awsSecretKey')) define('awsSecretKey', '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');
+			if (!defined('awsAccessKey')) define('awsAccessKey', 'AKIAJL6QJOSAE65ZQS7Q');
+			if (!defined('awsSecretKey')) define('awsSecretKey', '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');
  
 			//instantiate the class
 			$s3 = new S3(awsAccessKey, awsSecretKey);
