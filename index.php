@@ -89,7 +89,7 @@ $s3 = new S3(awsAccessKey, awsSecretKey);
 			$nomimg = str_replace('@', '_', $nomimg);
 	    
 	    		$tmpfilename = $_FILES['img']['tmp_name'] ;
-	    		$s3->putBucket("ndhs3", S3::ACL_PUBLIC_READ);
+	    		var_dump($s3->putBucket("ndhs3", S3::ACL_PUBLIC_READ));
 			//move the file
 			if ($s3->putObjectFile($tmpfilename, "ndhs3", $nomimg, S3::ACL_PUBLIC_READ)) {
 				echo "<strong>S3::We successfully uploaded your file.</strong>";
