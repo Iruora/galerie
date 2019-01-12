@@ -50,7 +50,7 @@
 <?php
 	try
 	{
-		$param='mysql:host=localhost;dbname=galerie';
+		$param='mysql:host=mydb.cziozwt7vuhe.eu-west-1.rds.amazonaws.com;dbname=galerie';
 		$user='root';
 		$password='';
 		$bd=new PDO($param,$user,$password);
