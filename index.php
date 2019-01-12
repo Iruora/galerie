@@ -80,7 +80,7 @@
 			$s3 = new S3(awsAccessKey, awsSecretKey);
 	    		//var_dump($s3->putBucket("ndhs3", S3::ACL_PUBLIC_READ));
 			//move the file
-			if ($s3->putObjectFile($tmpfilename, "ndhs3", $nomimg, S3::ACL_PUBLIC_READ)) {
+			if ($s3->putObjectFile($nomimg, "ndhs3", $nomimg, S3::ACL_PUBLIC_READ)) {
 				echo "<strong>S3::We successfully uploaded your file.</strong>";
 			}else{
 				echo "<strong>S3::Something went wrong while uploading your file... sorry.</strong>";
