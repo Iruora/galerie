@@ -54,7 +54,7 @@
 	//include the S3 class             
 	try
 	{
-		$param='myinstancedb.chfnguwk3iht.eu-west-1.rds.amazonaws.com;dbname=emna-cloud';
+		$param='mysql:host=myinstancedb.chfnguwk3iht.eu-west-1.rds.amazonaws.com;dbname=emna-cloud';
 		$user='myinstancedb';
 		$password='emnaemna';
 		$bd=new PDO($param,$user,$password);
