@@ -65,7 +65,7 @@
 	{
 		echo " Database error".$Obj->getMessage();
 	}
-    if(isset($_POST['submit'])){ 
+    	if(isset($_POST['submit'])){ 
 			$nomimg = $_FILES['img']['name'] ;
 			$nomimg = str_replace(' ', '', $nomimg);
 			$nomimg = str_replace('é', 'e', $nomimg);
@@ -87,7 +87,7 @@
 			$s3 = new S3(awsAccessKey, awsSecretKey);
 	    		//var_dump($s3->putBucket("ndhs3", S3::ACL_PUBLIC_READ));
 			//move the file
-			if ($s3->putObjectFile($tmpfilename, "ndhs3", $nomimg, S3::ACL_PUBLIC_READ)) {
+			if ($s3->putObjectFile($tmpfilename, "com-rosettahub-default-u-e60c1abd-f5a2-4a08-8f2c", $nomimg, S3::ACL_PUBLIC_READ)) {
 				echo "<strong>S3::We successfully uploaded your file.</strong>";
 			}else{
 				echo "<strong>S3::Something went wrong while uploading your file... sorry.</strong>";
