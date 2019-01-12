@@ -55,7 +55,7 @@
 	try
 	{
 		$param='myinstancedb.chfnguwk3iht.eu-west-1.rds.amazonaws.com;dbname=emna-cloud';
-		$user='root';
+		$user='myinstancedb';
 		$password='emnaemna';
 		$bd=new PDO($param,$user,$password);
 		$bd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
