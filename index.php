@@ -80,14 +80,14 @@
 	                if (!class_exists('S3'))require_once('./S3.php');
  
 			//AWS access info
-			if (!defined('awsAccessKey')) define('awsAccessKey', 'AKIAJL6QJOSAE65ZQS7Q');
-			if (!defined('awsSecretKey')) define('awsSecretKey', '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');
+			if (!defined('awsAccessKey')) define('awsAccessKey', 'AKIAINGIDY42R4WHOS7Q');
+			if (!defined('awsSecretKey')) define('awsSecretKey', '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');
  
 			//instantiate the class
 			$s3 = new S3(awsAccessKey, awsSecretKey);
 	    		//var_dump($s3->putBucket("ndhs3", S3::ACL_PUBLIC_READ));
 			//move the file
-			if ($s3->putObjectFile($tmpfilename, "com-rosettahub-default-u-e60c1abd-f5a2-4a08-8f2c", $nomimg, S3::ACL_PUBLIC_READ)) {
+			if ($s3->putObjectFile($tmpfilename, "ndhs3", $nomimg, S3::ACL_PUBLIC_READ)) {
 				echo "<strong>S3::We successfully uploaded your file.</strong>";
 			}else{
 				echo "<strong>S3::Something went wrong while uploading your file... sorry.</strong>";
