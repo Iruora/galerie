@@ -67,21 +67,14 @@
 	}
     	if(isset($_POST['submit'])){ 
 			$nomimg = $_FILES['img']['name'] ;
-			$nomimg = str_replace(' ', '', $nomimg);
-			$nomimg = str_replace('é', 'e', $nomimg);
-			$nomimg = str_replace('è', 'e', $nomimg);
-			$nomimg = str_replace('à', 'a', $nomimg);
-			$nomimg = str_replace(' ', '', $nomimg);
-			$nomimg = str_replace('-', '_', $nomimg);
-			$nomimg = str_replace('/', '_', $nomimg);
-			$nomimg = str_replace('@', '_', $nomimg);
+			
 	    
 	    		$tmpfilename = $_FILES['img']['tmp_name'] ;
 	                if (!class_exists('S3'))require_once('./S3.php');
  
 			//AWS access info
-			if (!defined('awsAccessKey')) define('awsAccessKey', 'AKIAINGIDY42R4WHOS7Q');
-			if (!defined('awsSecretKey')) define('awsSecretKey', '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');
+			if (!defined('awsAccessKey')) define('awsAccessKey', 'AKIAI2ANFIK2P43PMC2A');
+			if (!defined('awsSecretKey')) define('awsSecretKey', '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');
  
 			//instantiate the class
 			$s3 = new S3(awsAccessKey, awsSecretKey);
